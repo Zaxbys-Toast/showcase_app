@@ -1,10 +1,9 @@
 module even_fib_mod
-        use iso_fortran_env, only: int64
         implicit none
 contains
         function sum_even_fibs(targetValue) result(res)
-                integer(int64), intent(in) :: targetValue
-                integer(int64) :: a, b, temp, res
+                integer(kind=8), intent(in) :: targetValue
+                integer(kind=8) :: a, b, temp, res
 
                 a = 0
                 b = 1

@@ -1,23 +1,18 @@
-module multiples_sum
-        use iso_fortran_env, only: int64
+module multiples_sum_mod
         implicit none
-contains 
-
-        function multiples_sum(endValue) result(x)
-                integer(int64), intent(in) :: endValue
-                integer(int64) :: x, i
-                
-                if (endValue < 1_int64) then
-                        x = 0
-                        return
-                end if
+contains
+        function multiples_sum_func(endValue) result(x)
+                integer(kind=8), intent(in) :: endValue
+                integer(kind=8) :: x, i
 
                 x = 0
+                if (endValue < 1_8) return
+
                 do i = 1, endValue
-                        if (MOD(i,3) == 0 .OR. MOD(i,5) == 0) then
+                        if (mod(i,3) == 0 .or. mod(i,5) == 0) then
                                 x = x + i
                         end if
                 end do
-        end function multiples_sum
+        end function multiples_sum_func
+end module multiples_sum_mod
 
-end module multiples_sum

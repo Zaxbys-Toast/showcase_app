@@ -1,7 +1,7 @@
-module smallest_multiple
+module smallest_multiple_mod
         implicit none
 contains
-        function gcd(a, b) result(r)
+        function gcd_func(a, b) result(r)
                 integer, intent(in) :: a, b
                 integer :: r, x, y
                 x = a
@@ -12,20 +12,22 @@ contains
                         y = r
                 end do
                 r = x
-        end function gcd
+        end function gcd_func
 
-        function lcm(a, b) result(r)
+        function lcm_func(a, b) result(r)
                 integer, intent(in) :: a, b
                 integer :: r
-                r = a * b / gcd(a, b)
-        end function lcm
+                r = a * b / gcd_func(a, b)
+        end function lcm_func
 
-        function smallest_multiple(maxDiv) result(n)
+        function smallest_multiple_func(maxDiv) result(n)
                 integer, intent(in) :: maxDiv
-                integer :: i, n
+                integer :: n, i
+
                 n = 1
                 do i = 1, maxDiv
-                       n = lcm(n, i)
+                        n = lcm_func(n, i)
                 end do
-        end function smallest_multiple
-end module smallest_multiple
+        end function smallest_multiple_func
+end module smallest_multiple_mod
+
