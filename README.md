@@ -19,18 +19,16 @@ algorithm design, and implementation skills.
 
 ## Structure
 ```
-project
-│   README.md  
-└───fortran_components
-│   └───EvenFib
-│       │   even_fib.f90
-│   └───LargestPalindrome
-│       │   largest_palindrome.f90
-│   └───LargestPrimeFactor
-│       │   largest_prime.f90
-│   └───MultiplesOf3Or5
-│       │   multiples.f90
-│       │   multiples_with_increments.f90
-│   └───SmallestMultiple
-│       │   smallest_multiple.f90
+project/
+│
+├─ fortran_modules/
+│   ├─ even_fib.f90
+│   ├─ largest_palindrome.f90
+│   ├─ largest_prime.f90
+│   ├─ multiples_sum.f90
+│   └─ smallest_multiple.f90
+│
+├─ Python Back-End ***Future
+└─ Dockerfile (for CI/CD)***Future
+
 ```
