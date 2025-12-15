@@ -1,13 +1,10 @@
-program largest_palindrome
+module largest_palindrome
         implicit none
-        call find_largest_pal()
 contains
 
-        subroutine find_largest_pal()
-                integer :: i, j
-                integer :: product
-                integer :: largest_pal
-                integer :: best_i, best_j
+        subroutine find_largest_pal(best_i, best_j, largest_pal)
+                integer, intent(out) :: best_i, best_j, largest_pal
+                integer :: i, j, product
 
                 largest_pal = 0
 
@@ -24,28 +21,22 @@ contains
                                 end if
                         end do
                 end do
-
-                print *, "Value 1: ", best_i
-                print *, "Value 2: ", best_j
-                print *, "Largest Palindrome: ", largest_pal
         end subroutine find_largest_pal
 
-
-        function has_pal(num) result(valid)
+        logical function has_pal(num)
                 integer, intent(in) :: num
                 integer :: temp, reverse
-                logical :: valid
 
                 temp = abs(num)
                 reverse = 0
 
                 do while (temp /= 0)
-                        reverse = reverse * 10 + mod(temp, 10)
-                        temp = temp / 10
+                reverse = reverse * 10 + mod(temp, 10)
+                temp = temp / 10
                 end do
 
-                valid = (reverse == num)
+                has_pal = (reverse == num)
         end function has_pal
 
-end program largest_palindrome
+end module largest_palindrome
 
